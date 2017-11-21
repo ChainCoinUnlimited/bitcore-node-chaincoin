@@ -18,14 +18,14 @@ git clone git@github.com:<yourusername>/bitcore-node-chaincoin.git
 git clone git@github.com:<yourusername>/bitcore-lib.git
 ```
 
-To develop bitcoin or to compile from source:
+To develop chaincoin or to compile from source:
 
 ```bash
-git clone git@github.com:<yourusername>/bitcoin.git
+git clone git@github.com:<yourusername>/chaincoinunlimited/chaincoin.git
 git fetch origin <branchname>:<branchname>
 git checkout <branchname>
 ```
-**Note**: See bitcoin documentation for building bitcoin on your platform.
+**Note**: See bchaincoin documentation for building chaincoin on your platform.
 
 
 ## Install Development Dependencies
@@ -46,7 +46,7 @@ brew install zeromq
 ## Install and Symlink
 
 ```bash
-cd bitcore-lib
+cd bitcore-lib.chaincoin
 npm install
 cd ../bitcore-node-chaincoin
 npm install
@@ -57,8 +57,8 @@ npm install
 We now will setup symlinks in `bitcore-node-chaincoin` *(repeat this for any other modules you're planning on developing)*:
 ```bash
 cd node_modules
-rm -rf bitcore-lib
-ln -s ~/bitcore-lib
+rm -rf bitcore-lib-chaincoin
+ln -s ~/bitcore-lib-chaincoin
 rm -rf bitcoind-rpc-chaincoin
 ln -s ~/bitcoind-rpc-chaincoin
 ```
@@ -66,7 +66,7 @@ ln -s ~/bitcoind-rpc-chaincoin
 And if you're compiling or developing bitcoin:
 ```bash
 cd ../bin
-ln -sf ~/bitcoin/src/bitcoind
+ln -sf ~/chaincoin/src/chaincoind
 ```
 
 ## Run Tests
@@ -85,12 +85,12 @@ npm run test
 
 To run a specific unit test in watch mode:
 ```bash
-mocha -w -R spec test/services/bitcoind.unit.js
+mocha -w -R spec test/services/chaincoind.unit.js
 ```
 
 To run a specific regtest:
 ```bash
-mocha -R spec regtest/bitcoind.js
+mocha -R spec regtest/chaincoind.js
 ```
 
 ## Running a Development Node
@@ -121,27 +121,27 @@ Edit `bitcore-node-chaincoin.json` with something similar to:
   "servicesConfig": {
     "bitcoind": {
       "spawn": {
-        "datadir": "/home/<youruser>/.bitcoin",
-        "exec": "/home/<youruser>/bitcoin/src/bitcoind"
+        "datadir": "/home/<youruser>/.chaincoincore",
+        "exec": "/home/<youruser>/chaincoin/src/chaincoind"
       }
     }
   }
 }
 ```
 
-**Note**: To install services [insight-api](https://github.com/bitpay/insight-api) and [insight-ui](https://github.com/bitpay/insight-ui) you'll need to clone the repositories locally.
+**Note**: To install services [insight-api-chaincoin](https://github.com/chaincoinunlimited/insight-api-chaincoin) and [insight-ui-chaincoin](https://github.com/chaincoinunlimited/insight-ui-chaincoin) you'll need to clone the repositories locally.
 
 Setup symlinks for all of the services and dependencies:
 
 ```bash
 cd node_modules
-ln -s ~/bitcore-lib
+ln -s ~/bitcore-lib-chaincoin
 ln -s ~/bitcore-node-chaincoin
-ln -s ~/insight-api
-ln -s ~/insight-ui
+ln -s ~/insight-api-chaincoin
+ln -s ~/insight-ui-chaincoin
 ```
 
-Make sure that the `<datadir>/bitcoin.conf` has the necessary settings, for example:
+Make sure that the `<datadir>/chaincoin.conf` has the necessary settings, for example:
 ```
 server=1
 whitelist=127.0.0.1
@@ -151,8 +151,9 @@ timestampindex=1
 spentindex=1
 zmqpubrawtx=tcp://127.0.0.1:28332
 zmqpubhashblock=tcp://127.0.0.1:28332
+zmqpubrawtxlock=tcp://127.0.0.1:28332
 rpcallowip=127.0.0.1
-rpcuser=bitcoin
+rpcuser=chaincoinrpc
 rpcpassword=local321
 ```
 
