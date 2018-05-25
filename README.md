@@ -6,12 +6,12 @@ A Chaincoinncoin full node for building applications and services with Node.js. 
 ## Install
 
 ```bash
-npm install -g bitcore-node-chaincoinncoin
+npm install -g bitcore-node-chaincoin
 ```
 
 ## Prerequisites
 
-- Chaincoinncoin Core (v0.12.1.x) with support for additional indexing *(see above)*
+- Chaincoinncoin Core (v0.16.x) with support for additional indexing *(see above)*
 - Node.js v0.10, v0.12, v4 or v5
 - ZeroMQ *(libzmq3-dev for Ubuntu/Debian or zeromq on OSX)*
 - ~20GB of disk storage
@@ -22,16 +22,16 @@ npm install -g bitcore-node-chaincoinncoin
 Bitcore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Bitcore Node.
 
 ```bash
-bitcore-node-chaincoinncoin createchaincoin<chaincoin-data-dir> mynode
+bitcore-node-chaincoin createchaincoin<chaincoin-data-dir> mynode
 cd mynode
-bitcore-node-chaincoinncoin install <service>
-bitcore-node-chaincoinncoin install https://github.com/yourname/helloworld
-bitcore-node-chaincoinncoin start
+bitcore-node-chaincoin install <service>
+bitcore-node-chaincoin install https://github.com/yourname/helloworld
+bitcore-node-chaincoin start
 ```
 
 This will create a directory with configuration files for your node and install the necessary dependencies.
 
-Please note that [Chaincoinncoin Core v0.12.1.x](https://github.com/ChainCoinUnlimitedinUnlimited/chaincoinncoin/tree/v0.12.1.x) will be downloaded automatically. Once completed the chaincoindcoind binary should be placed into thechaincoin;chaincoin-data-dir&gt; folder specified during node creation.
+Please note that [Chaincoin Core](https://github.com/chaincoin/chaincoin) need to be installed first.
 
 For more information about (and developing) services, please see the [Service Documentation](docs/services.md).
 
@@ -39,9 +39,9 @@ For more information about (and developing) services, please see the [Service Do
 
 There are several add-on services available to extend the functionality of Bitcore:
 
-- [Insight API](https://github.com/ChainCoinUnlimitedinUnlimited/insight-api-chaincoinncoin/tree/master)
-- [Insight UI](https://github.com/ChainCoinUnlimitedinUnlimited/insight-ui-chaincoinncoin/tree/master)
-- [Bitcore Wallet Service](https://github.com/ChainCoinUnlimitedinUnlimited/bitcore-wallet-service/tree/master)
+- [Insight API](https://github.com/chaincoin/insight-api-chaincoin/tree/master)
+- [Insight UI](https://github.com/chaincoin/insight-ui-chaincoin/tree/master)
+- [Bitcore Wallet Service](https://github.com/chaincoin/bitcore-wallet-service/tree/master)
 
 ## Documentation
 
